@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fundación Futuro, Formación y Hábitat</title>
+  <meta name="description" content="Fundación enfocada en educación STEM, innovación, sostenibilidad ambiental y desarrollo territorial." />
+  <style>
+    :root {
+      /* Paleta basada en el logo FFH */
+      --primary: #1f7a3a;   /* verde principal */
+      --secondary: #2f9e44; /* verde claro */
+      --accent: #2b6cb0;    /* azul */
+      --light: #f4f8fb;
+      --dark: #1c2730;
+      --text: #1c2730;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      padding-bottom: 70px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      padding: 50px 0 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin-bottom: 24px;
+      opacity: 0.96;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-secondary {
+      border: 2px solid rgba(255,255,255,0.7);
+      color: var(--white);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .hero-logo {
+      width: min(100%, 520px);
+      height: auto;
+      display: block;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.12));
+      animation: fadeUp 0.95s ease both;
+    }
+
+    .hero-content {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-subtitle {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .section-animate {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 30px;
+      border-radius: 24px;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      animation: fadeUp 1s ease both;
+      animation-delay: 0.25s;
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .hero-card ul {
+      padding-left: 18px;
+      margin-bottom: 0;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      color: var(--dark);
+    }
+
+    .section-title p {
+      margin: 0 auto;
+      max-width: 720px;
+      color: #4b5b67;
+    }
+
+    .about-grid, .programs-grid, .values-grid, .contact-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .about-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .programs-grid, .values-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, #ffffff, #eef6fa);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      background: #e6f4ea;
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid rgba(31,122,58,0.15);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--primary);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #d5dfe6;
+      font: inherit;
+    }
+
+    textarea { min-height: 140px; resize: vertical; }
+
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      opacity: 0.88;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid,
+      .programs-grid,
+      .values-grid,
+      .contact-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand" style="display:flex; align-items:center; gap:10px;">
+          <img src="logo.png" alt="FFH" style="height:40px; width:auto;" />
+          <span>Fundación Futuro, Formación y Hábitat</span>
+        </div>
+        <div class="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#programas">Programas</a>
+          <a href="#valores">Valores</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+
+      <div class="hero" id="inicio">
+        <div class="hero-content">
+          <span class="hero-subtitle">Educación STEM · Innovación · Sostenibilidad · Territorio</span>
+          <h1>Construyendo futuro con ciencia, educación e impacto social</h1>
+          <p>
+            Impulsamos programas formativos, innovación aplicada y acciones de sostenibilidad
+            para fortalecer capacidades en niños, jóvenes y comunidades, con una visión de desarrollo
+            territorial inclusivo y transformador.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#programas">Conocer programas</a>
+            <a class="btn btn-secondary" href="#contacto">Contáctanos</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img class="hero-logo" src="logo.png" alt="Logo Fundación FFH" />
+          <h3>Una visión institucional con impacto</h3>
+          <ul>
+            <li>Formación STEM con enfoque práctico</li>
+            <li>Innovación aplicada al territorio</li>
+            <li>Compromiso con sostenibilidad ambiental</li>
+            <li>Fortalecimiento de capacidades comunitarias</li>
+            <li>Alianzas para el desarrollo y la transformación social</li>
+          </ul>
+        </div>
+
+      <div class="hero-card">
+          <h3>Nuestras áreas de acción</h3>
+          <ul>
+            <li>Educación STEM para niños y jóvenes</li>
+            <li>Formación técnica y científica</li>
+            <li>Innovación para comunidades</li>
+            <li>Sostenibilidad ambiental</li>
+            <li>Desarrollo territorial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="nosotros" class="section-animate">
+    <div class="container">
+      <div class="section-title">
+        <h2>Quiénes somos</h2>
+        <p>
+          Somos una organización sin fines de lucro comprometida con la educación, la innovación,
+          la sostenibilidad ambiental y el desarrollo territorial, promoviendo soluciones formativas
+          y comunitarias con visión de largo plazo.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3>Misión</h3>
+          <p>
+            Promover programas de educación, investigación aplicada e innovación en áreas STEM,
+            con enfoque en sostenibilidad, protección de recursos naturales y desarrollo territorial sostenible.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Visión</h3>
+          <p>
+            Ser una fundación referente en formación científica y tecnológica, capaz de inspirar a nuevas
+            generaciones y aportar soluciones concretas a los desafíos de las comunidades.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programas" class="highlight section-animate">
+    <div class="container">
+      <div class="section-title">
+        <h2>Programas</h2>
+        <p>
+          Desarrollamos iniciativas con enfoque institucional que conectan formación, innovación y acción comunitaria.
+        </p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="card">
+          <h3>Educación STEM</h3>
+          <p>
+            Talleres y procesos formativos para niños, jóvenes y comunidades en robótica, programación,
+            pensamiento lógico y ciencia aplicada.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Innovación aplicada</h3>
+          <p>
+            Desarrollo de proyectos y prototipos con enfoque práctico, orientados a resolver necesidades
+            reales del territorio.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Sostenibilidad y territorio</h3>
+          <p>
+            Acciones educativas y técnicas vinculadas al cuidado del ambiente, la gestión responsable de
+            recursos y el fortalecimiento comunitario.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>STEM</strong>
+          Educación práctica y creativa
+        </div>
+        <div class="stat">
+          <strong>Innovación</strong>
+          Soluciones con impacto local
+        </div>
+        <div class="stat">
+          <strong>Sostenibilidad</strong>
+          Compromiso con el territorio
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="valores" class="section-animate">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestros valores</h2>
+        <p>
+          Nuestra identidad institucional se sustenta en principios que orientan cada intervención, alianza y programa.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="card">
+          <h3>Compromiso social</h3>
+          <p>Creemos en la educación como una herramienta de transformación para las personas y sus comunidades.</p>
+        </div>
+        <div class="card">
+          <h3>Innovación</h3>
+          <p>Impulsamos soluciones creativas, accesibles y útiles para responder a desafíos reales.</p>
+        </div>
+        <div class="card">
+          <h3>Responsabilidad ambiental</h3>
+          <p>Promovemos el uso responsable de los recursos y una visión sostenible del desarrollo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="highlight section-animate">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contacto</h2>
+        <p>
+          Puedes adaptar esta sección con tu correo institucional, redes sociales, WhatsApp y enlaces a formularios.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Información de contacto</h3>
+          <p><strong>Correo:</strong> <a href="mailto:fundacionffh@gmail.com">fundacionffh@gmail.com</a></p>
+          <p><strong>WhatsApp:</strong> +593 000 000 000</p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/ffh_fundacion?igsh=MTBhY2s2N2RkZDJwMw==" target="_blank" rel="noopener noreferrer">@ffh_fundacion</a></p>
+          <p><strong>Ubicación:</strong> Ecuador</p>
+          <p class="small">También puedes escribirnos por correo o seguirnos en Instagram para conocer nuestras actividades.</p>
+        </div>
+
+        <div class="card">
+          <h3>Formulario de contacto</h3>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdN9DXKL6U_Hg6fOzCk9g_I2LPz0Q_grpqIOI-fa0JzoqrH8w/viewform?embedded=true" 
+          width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">
+          Cargando…
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <strong>Fundación Futuro, Formación y Hábitat</strong>
+      <div class="small">Página base para publicar con GitHub Pages.</div>
+    </div>
+  </footer>
+</body>
+</html>
